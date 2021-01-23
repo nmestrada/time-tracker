@@ -3,6 +3,8 @@ export interface Task {
   id?: number;
   createdOn?: Date;
   duration: number;
+  isPaused: boolean;
+  timerId?: NodeJS.Timeout;
 }
 
 export type TaskList = Array<Task>;

@@ -1,10 +1,8 @@
 <template lang="pug">
 html
     h2 Task List
-    label Start Task: 
-    input( name='task', type='text' v-model="name" v-on:keyup.enter="updateCurrentTask(name)" )
     div.currentTask
-        CurrentTask(v-bind:currentTask="currentTask")
+        CurrentTask
     div.taskList
         TaskItem(v-for='task in taskList' v-bind:task="task")
 </template>
@@ -26,29 +24,29 @@ export default defineComponent({
     // can access the store.state.currentTask e.g. documentation here: https://next.vuex.vuejs.org/guide/composition-api.html#accessing-state-and-getters
     return {
       taskList: computed(() => store.state.taskList),
-      addTask: (task: Task) => store.dispatch('addTask', task),
+      addTask: (task: Task) => store.dispatch('addTaskAction', task),
+      currentTask: computed(() => store.state.currentTask)
     };
   },
   data() {
     return {
-      name: '',
+      name: ''
     };
   },
   methods: {
     updateCurrentTask(name: string) {
-      this.currentTask = new Timer(name);
-      this.currentTask.startTracking();
-      console.log('currentTask', this.currentTask);
-      this.addTask(this.currentTask);
-    },
-  },
+      const currentTask = new Timer(name);
+      console.log('currentTask', currentTask);
+      this.addTask(currentTask);
+    }
+  }
 });
 </script>
 
 <style scoped>
 .taskList {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   color: blue;
 }
