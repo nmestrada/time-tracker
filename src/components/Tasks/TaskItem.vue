@@ -2,11 +2,7 @@
   <div class="taskItem">
     <h3>{{ task.name }}</h3>
     <div class="timeLogContainer">
-      <h4>{{ task.timeLogged }}</h4>
-      <button class="icon-button" v-on:click="toggleIcon">
-        <font-awesome-icon v-if="isTracking" class="icon" icon="pause-circle" />
-        <font-awesome-icon v-else class="icon" icon="play-circle" />
-      </button>
+      <h4>{{ task.duration }}</h4>
     </div>
   </div>
 </template>
@@ -24,14 +20,14 @@ export default defineComponent({
   props: ['task'],
   data() {
     return {
-      isTracking: false,
+      isTracking: false
     };
   },
   methods: {
     toggleIcon() {
       this.isTracking = !this.isTracking;
-    },
-  },
+    }
+  }
 });
 </script>
 

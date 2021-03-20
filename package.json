@@ -17,6 +17,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/vue-fontawesome": "^3.0.0-3",
+    "@supabase/supabase-js": "^1.6.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -50,7 +51,8 @@
     "spectron": "13.0.0",
     "typescript": "~3.9.3",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "vue-loader-v16": "^16.0.0-beta.5.4"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
@@ -60,5 +62,8 @@
       "vue-cli-service lint",
       "git add"
     ]
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }

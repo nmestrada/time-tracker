@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Pika</h1>
     <TaskList />
   </div>
 </template>
@@ -20,7 +19,7 @@ export default defineComponent({
    */
   name: 'Home',
   components: {
-    TaskList,
-  },
+    TaskList
+  }
 });
 </script>
